@@ -1,0 +1,27 @@
+namespace: devops-assignment
+resources:
+  - ../../base
+
+images:
+  - name: ghcr.io/REPLACE_OWNER/devops-assignment-api
+    newName: devops-assignment-api
+    newTag: local
+  - name: ghcr.io/REPLACE_OWNER/devops-assignment-frontend
+    newName: devops-assignment-frontend
+    newTag: local
+
+patches:
+  - target:
+      kind: Deployment
+      name: api
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 1
+  - target:
+      kind: Deployment
+      name: frontend
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 1

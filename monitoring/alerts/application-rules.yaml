@@ -1,0 +1,46 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: application-alerts
+  namespace: monitoring
+  labels:
+    release: prometheus-stack
+spec:
+  groups:
+    - name: devops-assignment.rules
+      rules:
+        - alert: HighClusterCpuUsage
+          expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Cluster CPU usage is high
+        - alert: HighClusterMemoryUsage
+          expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 85
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Cluster memory usage is high
+        - alert: PodFailures
+          expr: kube_pod_container_status_restarts_total > 3
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: Pod restart count is elevated
+        - alert: ApplicationUnavailable
+          expr: app_database_ready == 0 or absent(up{job="api"} == 1)
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: Application is unavailable
+        - alert: ExcessiveErrorRates
+          expr: sum(rate(nginx_ingress_controller_requests{status=~"5.."}[5m])) > 1
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: HTTP 5xx rate is elevated
