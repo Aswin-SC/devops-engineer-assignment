@@ -1,0 +1,24 @@
+NAMESPACE            NAME                                                      READY   STATUS    RESTARTS      AGE
+devops-assignment    api-846cdbd7bd-nrmt7                                      1/1     Running   0             32m
+devops-assignment    frontend-bfdcc599f-p8tzk                                  1/1     Running   0             32m
+devops-assignment    postgres-0                                                1/1     Running   2 (17m ago)   39m
+ingress-nginx        ingress-nginx-controller-55f6bfcb84-brv28                 1/1     Running   0             36m
+jenkins              jenkins-0                                                 2/2     Running   0             32m
+kube-system          coredns-674b8bbfcf-4xv6t                                  1/1     Running   0             54m
+kube-system          coredns-674b8bbfcf-zl5tk                                  1/1     Running   0             54m
+kube-system          etcd-devops-assignment-control-plane                      1/1     Running   0             55m
+kube-system          kindnet-6g4bs                                             1/1     Running   0             54m
+kube-system          kube-apiserver-devops-assignment-control-plane            1/1     Running   0             55m
+kube-system          kube-controller-manager-devops-assignment-control-plane   1/1     Running   2 (16m ago)   55m
+kube-system          kube-proxy-89vsk                                          1/1     Running   0             54m
+kube-system          kube-scheduler-devops-assignment-control-plane            1/1     Running   2 (16m ago)   55m
+local-path-storage   local-path-provisioner-7dc846544d-pprzs                   1/1     Running   0             54m
+monitoring           alertmanager-prometheus-stack-kube-prom-alertmanager-0    2/2     Running   0             53m
+monitoring           loki-0                                                    2/2     Running   0             46m
+monitoring           loki-canary-lh5kv                                         1/1     Running   0             50m
+monitoring           prometheus-prometheus-stack-kube-prom-prometheus-0        2/2     Running   0             53m
+monitoring           prometheus-stack-grafana-7d79696b8c-mqpps                 3/3     Running   0             53m
+monitoring           prometheus-stack-kube-prom-operator-6d4667dd56-56zgm      1/1     Running   2 (16m ago)   53m
+monitoring           prometheus-stack-kube-state-metrics-579964d859-zk976      1/1     Running   0             53m
+monitoring           prometheus-stack-prometheus-node-exporter-b5h4k           1/1     Running   2             53m
+monitoring           promtail-gvk7k                                            1/1     Running   0             46m

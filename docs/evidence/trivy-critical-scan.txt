@@ -1,0 +1,95 @@
+$ trivy image --severity CRITICAL --exit-code 0 --scanners vuln devops-assignment-api:local
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/click-8.4.1.dist-info/METADATA            │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/dnspython-2.8.0.dist-info/METADATA        │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/email_validator-2.3.0.dist-info/METADATA  │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/fastapi-0.111.0.dist-info/METADATA        │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/fastapi_cli-0.0.24.dist-info/METADATA     │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/h11-0.16.0.dist-info/METADATA             │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/httpcore-1.0.9.dist-info/METADATA         │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/httptools-0.8.0.dist-info/METADATA        │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/httpx-0.28.1.dist-info/METADATA           │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/idna-3.18.dist-info/METADATA              │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/jinja2-3.1.6.dist-info/METADATA           │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/markdown_it_py-4.2.0.dist-info/METADATA   │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/markupsafe-3.0.3.dist-info/METADATA       │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/mdurl-0.1.2.dist-info/METADATA            │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/orjson-3.11.9.dist-info/METADATA          │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/pip-26.0.1.dist-info/METADATA             │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/psycopg-3.2.13.dist-info/METADATA         │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/psycopg_binary-3.2.13.dist-info/METADATA  │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/pydantic-2.13.4.dist-info/METADATA        │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/pydantic_core-2.46.4.dist-info/METADATA   │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/pygments-2.20.0.dist-info/METADATA        │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/python_dotenv-1.2.2.dist-info/METADATA    │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/python_multipart-0.0.30.dist-info/METADA- │ python-pkg │        0        │
+│ TA                                                                               │            │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/pyyaml-6.0.3.dist-info/METADATA           │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/rich-15.0.0.dist-info/METADATA            │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/rich_toolkit-0.19.10.dist-info/METADATA   │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/shellingham-1.5.4.dist-info/METADATA      │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/starlette-0.37.2.dist-info/METADATA       │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/typer-0.26.6.dist-info/METADATA           │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/typing_extensions-4.15.0.dist-info/METAD- │ python-pkg │        0        │
+│ ATA                                                                              │            │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/typing_inspection-0.4.2.dist-info/METADA- │ python-pkg │        0        │
+│ TA                                                                               │            │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/ujson-5.12.1.dist-info/METADATA           │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/uvicorn-0.30.1.dist-info/METADATA         │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/uvloop-0.22.1.dist-info/METADATA          │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/watchfiles-1.2.0.dist-info/METADATA       │ python-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
+│ usr/local/lib/python3.13/site-packages/websockets-16.0.dist-info/METADATA        │ python-pkg │        0        │
+└──────────────────────────────────────────────────────────────────────────────────┴────────────┴─────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+$ trivy image --severity CRITICAL --exit-code 0 --scanners vuln devops-assignment-frontend:local
+
+Report Summary
+
+┌──────────────────────────────────────────────────┬────────┬─────────────────┐
+│                      Target                      │  Type  │ Vulnerabilities │
+├──────────────────────────────────────────────────┼────────┼─────────────────┤
+│ devops-assignment-frontend:local (alpine 3.23.4) │ alpine │        0        │
+└──────────────────────────────────────────────────┴────────┴─────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+

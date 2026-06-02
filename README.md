@@ -2,6 +2,8 @@
 
 This repository implements a small cloud-native application platform with a frontend, backend API, PostgreSQL database, Docker Compose local development, Kind Kubernetes deployment, Jenkins CI/CD, and observability through Prometheus, Grafana, Loki, and Promtail.
 
+Submission documentation and proof files are available in [SUBMISSION.md](SUBMISSION.md) and [docs/evidence](docs/evidence).
+
 ## Architecture
 
 See [docs/diagrams/architecture.md](docs/diagrams/architecture.md).

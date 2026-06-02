@@ -1,0 +1,19 @@
+$ docker version
+Docker Server 29.5.2
+$ docker compose version
+Docker Compose version v5.1.4
+$ kubectl version --client=true
+Client Version: v1.33.12
+Kustomize Version: v5.6.0
+$ kind version
+kind v0.29.0 go1.24.2 linux/amd64
+$ helm version --short
+v3.17.3+ge4da497
+$ kustomize version
+v5.7.1
+$ trivy --version
+Version: 0.71.0
+$ node --version
+v22.22.2
+$ python3 --version
+Python 3.12.3

@@ -1,0 +1,8 @@
+$ git log --oneline -5
+cb312ba Update images to pass critical vulnerability scans
+58fbf68 Fix local Kubernetes runtime settings
+353a6ed Fix backend package import for tests
+3a72765 Initial DevOps assignment platform
+$ git status --short --branch
+## main
+?? docs/evidence/
