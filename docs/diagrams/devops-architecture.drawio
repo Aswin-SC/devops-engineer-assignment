@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-03" version="21.0.0">
+  <diagram name="DevOps Platform Architecture" id="devops-arch">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LAYER 1 — USER / BROWSER -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="browser" value="&lt;b&gt;Browser / User&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;http://devops-assignment.local&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#003366;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="310" y="30" width="280" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LAYER 2 — INGRESS -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="ingress" value="&lt;b&gt;ingress-nginx&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Routes traffic · TLS termination&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#003366;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="310" y="140" width="280" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: Browser → Ingress -->
+        <mxCell id="e_browser_ingress" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="browser" target="ingress" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LAYER 3 — FRONTEND + JENKINS (side by side) -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="frontend" value="&lt;b&gt;Frontend (NGINX)&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Serves UI · proxies /api calls · non-root&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#003366;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="110" y="260" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="jenkins" value="&lt;b&gt;Jenkins CI/CD&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Lint · Build · Trivy scan · Deploy · Rollback&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#3d1e6e;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="530" y="260" width="280" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: Ingress → Frontend -->
+        <mxCell id="e_ingress_fe" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="ingress" target="frontend" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: Ingress → Jenkins -->
+        <mxCell id="e_ingress_jenkins" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="ingress" target="jenkins" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LAYER 4 — BACKEND API -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="api" value="&lt;b&gt;Backend API (FastAPI)&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;/health · /ready · /status · /metrics&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#003366;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="110" y="380" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: Frontend → API -->
+        <mxCell id="e_fe_api" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="frontend" target="api" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: Jenkins → API (deploy, dashed) -->
+        <mxCell id="e_jenkins_api" value="deploys" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#9673a6;fontColor=#9673a6;fontSize=10;" edge="1" source="jenkins" target="api" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LAYER 5 — POSTGRESQL -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="postgres" value="&lt;b&gt;PostgreSQL&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Primary data store · connection pooling&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1a4d1a;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="110" y="500" width="260" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: API → Postgres -->
+        <mxCell id="e_api_pg" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="api" target="postgres" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- OBSERVABILITY CONTAINER -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="obs_container" value="Observability stack"
+          style="swimlane;startSize=25;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#7d5500;dashed=1;arcSize=4;fontStyle=1;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="530" y="370" width="280" height="190" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="prometheus" value="&lt;b&gt;Prometheus&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Metrics scraping · AlertManager&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7d3c00;arcSize=8;"
+          vertex="1" parent="obs_container">
+          <mxGeometry x="10" y="40" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="grafana" value="&lt;b&gt;Grafana&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Dashboards · alert rules&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7d3c00;arcSize=8;"
+          vertex="1" parent="obs_container">
+          <mxGeometry x="150" y="40" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="loki" value="&lt;b&gt;Loki&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Log aggregation&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7d3c00;arcSize=8;"
+          vertex="1" parent="obs_container">
+          <mxGeometry x="10" y="120" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="promtail" value="&lt;b&gt;Promtail&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size:10px'&gt;Log shipping to Loki&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7d3c00;arcSize=8;"
+          vertex="1" parent="obs_container">
+          <mxGeometry x="150" y="120" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Obs internal arrows -->
+        <mxCell id="e_prom_graf" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="prometheus" target="grafana" parent="obs_container">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_promtail_loki" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="promtail" target="loki" parent="obs_container">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_loki_graf" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="loki" target="grafana" parent="obs_container">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: API → Prometheus (scrape) -->
+        <mxCell id="e_api_prom" value="scrapes /metrics" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#d79b00;fontColor=#7d5500;fontSize=10;" edge="1" source="api" target="prometheus" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- KIND KUBERNETES CLUSTER CONTAINER -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="k8s_cluster" value="Kind Kubernetes cluster (WSL)"
+          style="swimlane;startSize=28;fillColor=#f5f5f5;strokeColor=#666;fontColor=#333;dashed=1;arcSize=4;fontStyle=1;fontSize=11;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="620" width="810" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- NS: devops-assignment -->
+        <mxCell id="ns_app" value="namespace: devops-assignment"
+          style="swimlane;startSize=22;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#003366;dashed=1;arcSize=4;fontSize=10;"
+          vertex="1" parent="k8s_cluster">
+          <mxGeometry x="10" y="38" width="370" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pod_fe" value="frontend pod"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#003366;fontSize=10;"
+          vertex="1" parent="ns_app">
+          <mxGeometry x="10" y="30" width="100" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pod_api" value="api pod"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#003366;fontSize=10;"
+          vertex="1" parent="ns_app">
+          <mxGeometry x="130" y="30" width="100" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pod_pg" value="postgres pod"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1a4d1a;fontSize=10;"
+          vertex="1" parent="ns_app">
+          <mxGeometry x="250" y="30" width="100" height="34" as="geometry"/>
+        </mxCell>
+
+        <!-- NS: monitoring -->
+        <mxCell id="ns_mon" value="namespace: monitoring"
+          style="swimlane;startSize=22;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#7d5500;dashed=1;arcSize=4;fontSize=10;"
+          vertex="1" parent="k8s_cluster">
+          <mxGeometry x="395" y="38" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pod_prom" value="prometheus"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7d3c00;fontSize=10;"
+          vertex="1" parent="ns_mon">
+          <mxGeometry x="10" y="30" width="90" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pod_graf" value="grafana · loki"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7d3c00;fontSize=10;"
+          vertex="1" parent="ns_mon">
+          <mxGeometry x="115" y="30" width="95" height="34" as="geometry"/>
+        </mxCell>
+
+        <!-- NS: jenkins -->
+        <mxCell id="ns_jenkins" value="namespace: jenkins"
+          style="swimlane;startSize=22;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#3d1e6e;dashed=1;arcSize=4;fontSize=10;"
+          vertex="1" parent="k8s_cluster">
+          <mxGeometry x="630" y="38" width="170" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pod_jenkins" value="jenkins-0 (2/2)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#3d1e6e;fontSize=10;"
+          vertex="1" parent="ns_jenkins">
+          <mxGeometry x="10" y="30" width="150" height="34" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: Architecture → Cluster -->
+        <mxCell id="e_pg_cluster" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#aaa;" edge="1" source="postgres" target="k8s_cluster" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- SECURITY CONTROLS CONTAINER -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="security" value="Security controls"
+          style="swimlane;startSize=25;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#6d1f1f;dashed=1;arcSize=4;fontStyle=1;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="850" width="810" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sec1" value="Non-root containers"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#6d1f1f;fontSize=10;"
+          vertex="1" parent="security">
+          <mxGeometry x="10" y="32" width="140" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec2" value="Drop capabilities"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#6d1f1f;fontSize=10;"
+          vertex="1" parent="security">
+          <mxGeometry x="160" y="32" width="130" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec3" value="Resource limits"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#6d1f1f;fontSize=10;"
+          vertex="1" parent="security">
+          <mxGeometry x="300" y="32" width="120" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec4" value="Default deny network policy"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#6d1f1f;fontSize=10;"
+          vertex="1" parent="security">
+          <mxGeometry x="430" y="32" width="180" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec5" value="Trivy — 0 critical CVEs"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1a4d1a;fontSize=10;"
+          vertex="1" parent="security">
+          <mxGeometry x="620" y="32" width="180" height="34" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- TERRAFORM BONUS CONTAINER -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <mxCell id="terraform" value="Terraform — cloud infrastructure (bonus)"
+          style="swimlane;startSize=25;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1a4d1a;dashed=1;arcSize=4;fontStyle=1;fontSize=11;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="960" width="810" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="aks" value="AKS cluster"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1a4d1a;fontSize=10;"
+          vertex="1" parent="terraform">
+          <mxGeometry x="10" y="32" width="120" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="acr" value="ACR registry"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1a4d1a;fontSize=10;"
+          vertex="1" parent="terraform">
+          <mxGeometry x="145" y="32" width="120" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="kv" value="Key Vault"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1a4d1a;fontSize=10;"
+          vertex="1" parent="terraform">
+          <mxGeometry x="280" y="32" width="120" height="34" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,5 +1,9 @@
 # Architecture Diagram
 
+Editable Draw.io source: [devops-architecture.drawio](devops-architecture.drawio)
+
+Open the `.drawio` file with [diagrams.net](https://app.diagrams.net/) by selecting **File > Open From > Device**, or by downloading it from GitHub and opening it locally in Draw.io Desktop.
+
 ```mermaid
 flowchart LR
   user[User Browser] --> ingress[Ingress NGINX]

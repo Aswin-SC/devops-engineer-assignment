@@ -25,6 +25,7 @@ This submission implements a local cloud-native platform with:
 ## Architecture
 
 Architecture diagram: [docs/diagrams/architecture.md](docs/diagrams/architecture.md)
+Editable Draw.io source: [docs/diagrams/devops-architecture.drawio](docs/diagrams/devops-architecture.drawio)
 
 Flow summary:
 
