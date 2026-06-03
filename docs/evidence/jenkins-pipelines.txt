@@ -1,0 +1,44 @@
+# Jenkins Pipeline Evidence
+
+Captured: 2026-06-03T12:48:18Z
+Jenkins URL: http://127.0.0.1:8080
+Source repository: https://github.com/Aswin-SC/devops-engineer-assignment.git
+Branch: main
+
+## Jobs
+- frontend-pipeline: Jenkinsfile.frontend
+- backend-pipeline: Jenkinsfile.backend
+
+## Final Build Status
+{
+    "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+    "duration": 18890,
+    "number": 5,
+    "result": "SUCCESS",
+    "timestamp": 1780490568136,
+    "url": "http://jenkins.local/job/frontend-pipeline/5/"
+}
+
+{
+    "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+    "duration": 65985,
+    "number": 6,
+    "result": "SUCCESS",
+    "timestamp": 1780490786619,
+    "url": "http://jenkins.local/job/backend-pipeline/6/"
+}
+
+## Frontend Console Proof
+Checking out Revision 847e988cf68c9dd8f77fd203510ba4bff3d548d3 (refs/remotes/origin/main)
+Checking out Revision 847e988cf68c9dd8f77fd203510ba4bff3d548d3 (refs/remotes/origin/main)
+frontend lint passed
+frontend tests passed
+frontend build complete
+Finished: SUCCESS
+
+## Backend Console Proof
+Checking out Revision c29b82cd968bceebb95c43d0a74291195c6ac93c (refs/remotes/origin/main)
+Checking out Revision c29b82cd968bceebb95c43d0a74291195c6ac93c (refs/remotes/origin/main)
+All checks passed!
+2 passed, 1 warning in 6.09s
+Finished: SUCCESS

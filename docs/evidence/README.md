@@ -9,6 +9,7 @@ This directory contains command-output proof captured from the live WSL environm
 - `services-ingress.txt`: services and ingress resources across namespaces.
 - `application-health.txt`: frontend ingress response and backend `/status` response.
 - `trivy-critical-scan.txt`: critical-only Trivy scan proof for API and frontend images.
+- `jenkins-pipelines.txt`: Jenkins frontend/backend job configuration and successful build proof.
 - `tool-versions.txt`: installed DevOps CLI versions.
 - `git-state.txt`: recent commits and working tree state.
 

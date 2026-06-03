@@ -85,6 +85,7 @@ Live proof files are stored in [docs/evidence](docs/evidence).
 - Services and ingresses: [docs/evidence/services-ingress.txt](docs/evidence/services-ingress.txt)
 - Application health: [docs/evidence/application-health.txt](docs/evidence/application-health.txt)
 - Trivy critical scans: [docs/evidence/trivy-critical-scan.txt](docs/evidence/trivy-critical-scan.txt)
+- Jenkins frontend/backend pipelines: [docs/evidence/jenkins-pipelines.txt](docs/evidence/jenkins-pipelines.txt)
 - Tool versions: [docs/evidence/tool-versions.txt](docs/evidence/tool-versions.txt)
 - Git state: [docs/evidence/git-state.txt](docs/evidence/git-state.txt)
 
@@ -100,6 +101,17 @@ Current validation highlights:
 ## CI/CD Proof
 
 Pipeline definition: [Jenkinsfile](Jenkinsfile)
+
+Dedicated GitHub-sourced Jenkins jobs:
+
+- `frontend-pipeline`: [Jenkinsfile.frontend](Jenkinsfile.frontend)
+- `backend-pipeline`: [Jenkinsfile.backend](Jenkinsfile.backend)
+
+Final job proof:
+
+- `frontend-pipeline` build `#5`: `SUCCESS`
+- `backend-pipeline` build `#6`: `SUCCESS`
+- Captured evidence: [docs/evidence/jenkins-pipelines.txt](docs/evidence/jenkins-pipelines.txt)
 
 Pipeline stages implemented:
 
