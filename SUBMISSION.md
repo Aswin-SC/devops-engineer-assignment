@@ -3,7 +3,7 @@
 ## Repository
 
 - GitHub repository: `https://github.com/Aswin-SC/devops-engineer-assignment`
-- Working WSL path: `/home/abarn/devops-engineer-assignment`
+- Working WSL path: `/home/user/devops-engineer-assignment`
 - Primary branch: `main`
 
 ## Objective Coverage
@@ -41,7 +41,7 @@ Flow summary:
 Run from WSL:
 
 ```bash
-cd /home/abarn/devops-engineer-assignment
+cd /home/user/devops-engineer-assignment
 ```
 
 Start the Docker Compose environment:
