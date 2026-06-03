@@ -1,0 +1,62 @@
+pipeline {
+  agent {
+    kubernetes {
+      defaultContainer 'node'
+      yaml '''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: node
+      image: node:24-alpine
+      command:
+        - cat
+      tty: true
+      resources:
+        requests:
+          cpu: 100m
+          memory: 256Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
+'''
+    }
+  }
+
+  options {
+    timestamps()
+    disableConcurrentBuilds()
+  }
+
+  stages {
+    stage('Checkout Source') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Frontend Lint') {
+      steps {
+        sh 'cd frontend && npm run lint'
+      }
+    }
+
+    stage('Frontend Unit Tests') {
+      steps {
+        sh 'cd frontend && npm test'
+      }
+    }
+
+    stage('Frontend Build') {
+      steps {
+        sh 'cd frontend && npm run build'
+      }
+    }
+  }
+
+  post {
+    always {
+      archiveArtifacts artifacts: 'frontend/dist/**', allowEmptyArchive: true
+    }
+  }
+}

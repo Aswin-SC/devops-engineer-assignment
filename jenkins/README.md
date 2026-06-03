@@ -20,6 +20,13 @@ Pipeline behavior:
 - Updates Kubernetes deployments.
 - Rolls back deployments on pipeline failure.
 
+Additional SCM-backed jobs are provided for split component validation:
+
+- `frontend-pipeline`: uses `Jenkinsfile.frontend`.
+- `backend-pipeline`: uses `Jenkinsfile.backend`.
+
+Both jobs use the GitHub repository as their source and run on Kubernetes plugin agents, so the Jenkins controller does not need Node.js or Python installed locally.
+
 Demo scenarios:
 
 - Successful deployment: run the pipeline on the main branch.

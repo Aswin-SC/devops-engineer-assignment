@@ -1,0 +1,75 @@
+pipeline {
+  agent {
+    kubernetes {
+      defaultContainer 'python'
+      yaml '''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: python
+      image: python:3.13-alpine
+      command:
+        - cat
+      tty: true
+      resources:
+        requests:
+          cpu: 100m
+          memory: 256Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
+'''
+    }
+  }
+
+  options {
+    timestamps()
+    disableConcurrentBuilds()
+  }
+
+  stages {
+    stage('Checkout Source') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Install Dependencies') {
+      steps {
+        sh '''
+          python -m venv .venv
+          . .venv/bin/activate
+          pip install --upgrade pip
+          pip install -r backend/requirements.txt -r backend/requirements-dev.txt
+        '''
+      }
+    }
+
+    stage('Backend Lint') {
+      steps {
+        sh '''
+          . .venv/bin/activate
+          cd backend
+          ruff check app tests
+        '''
+      }
+    }
+
+    stage('Backend Unit Tests') {
+      steps {
+        sh '''
+          . .venv/bin/activate
+          cd backend
+          pytest -q
+        '''
+      }
+    }
+  }
+
+  post {
+    always {
+      junit allowEmptyResults: true, testResults: 'backend/test-results/**/*.xml'
+    }
+  }
+}
