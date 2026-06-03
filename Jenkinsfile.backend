@@ -66,10 +66,4 @@ spec:
       }
     }
   }
-
-  post {
-    always {
-      junit allowEmptyResults: true, testResults: 'backend/test-results/**/*.xml'
-    }
-  }
 }
